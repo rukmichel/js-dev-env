@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+      include:
+      - "*"
+      exclude:
+      - releases/old*
+      - README.md
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo running Ci pipeline for Js dev!
+  displayName: 'Run Ci pipeline for Js dev'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+- task: NodeTool@0
+  inputs:
+    versionSource: 'spec'
+    versionSpec: '18.x'
+# Write the installed version to the command line
+- script: which node
